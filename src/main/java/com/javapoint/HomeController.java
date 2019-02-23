@@ -7,11 +7,13 @@ public class HomeController {
 	public String name;
     @RequestMapping("/hello")  
     public String hello(){  
-        return this.name == null ? "Name isn't set": this.name;
+        String name=this.name == null ? "Name isn't set": this.name;
+        return "<h1 style='text-align:left; font-size: 20px;'>Hello "+name+"!</h1>";
     }
     @RequestMapping(value="/homepage")
-    public void StoreName(String name)
+    public String StoreName(String name)
     {
     	this.name=name;
+    	return "<h3>Setting Name = "+name+"In Server</h3>";
     }
 }
